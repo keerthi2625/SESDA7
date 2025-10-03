@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Patterns Bank</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #004d99; /* Deep blue for branding */
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        h2 {
+            color: #007bff; /* Brighter blue for headers */
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        /* Account Status Area (Observer Display) */
+        .account-status {
+            background-color: #e6f7ff;
+            border: 1px solid #b3e0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        #balance {
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745; /* Green for positive balance */
+            display: block;
+            margin-top: 5px;
+        }
+
+        .notification-area {
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            border-radius: 5px;
+            font-style: italic;
+            min-height: 20px;
+        }
+
+        /* Transaction Controls */
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .buttons, .strategy-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .action-btn, .undo-btn, .interest-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            flex-grow: 1;
+        }
+
+        .action-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .action-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .undo-btn {
+            background-color: #ffc107; /* Yellow for undo/warning */
+            color: #333;
+        }
+
+        .undo-btn:hover {
+            background-color: #e0a800;
+        }
+
+        .interest-btn {
+            background-color: #28a745; /* Green for interest/success */
+            color: white;
+            width: 100%;
+        }
+
+        .interest-btn:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Behavioral Patterns Bank 🏦</h1>
+        
+        <div class="account-status">
+            <h2>Account: S12345 (Savings)</h2>
+            <p>Current Balance: <span id="balance">$500.00</span></p>
+            <p id="notification-area" class="notification-area">Welcome, Alice! (Notifications will appear here)</p>
+        </div>
+
+        <div class="transaction-section">
+            <h2>Transactions & Services</h2>
+            
+            <input type="number" id="amount" placeholder="Enter Amount" min="1">
+            
+            <div class="buttons">
+                <button id="deposit-btn" class="action-btn">Deposit</button>
+                <button id="withdraw-btn" class="action-btn">Withdraw</button>
+                <button id="undo-btn" class="undo-btn">Undo Last Action (Command)</button>
+            </div>
+            
+            <div class="strategy-section">
+                <button id="interest-btn" class="action-btn interest-btn">Calculate Interest (Strategy)</button>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+</html>
